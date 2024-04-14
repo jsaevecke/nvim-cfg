@@ -11,5 +11,5 @@ To get started with these configurations, follow these steps:
    ```bash
    git clone https://github.com/your-username/neovim-config.git ~/.config/nvim
    ```
-2. Run ```bash nvim .``` and navigate to /lua/pixian/packer.lua and run ```:PackerSync``` in nvim
+2. Run ```nvim .``` and navigate to /lua/pixian/packer.lua and run ```:PackerSync``` in nvim
 3. Enjoy!
