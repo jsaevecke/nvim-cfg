@@ -61,4 +61,5 @@ return require('packer').startup(function(use)
         'folke/trouble.nvim',
         requires = 'nvim-tree/nvim-web-devicons',
     }
+    use('xiyaowong/transparent.nvim')
 end)
