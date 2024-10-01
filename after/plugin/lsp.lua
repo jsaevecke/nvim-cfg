@@ -37,7 +37,7 @@ lsp_zero.set_server_config({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'yamlls' },
+    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls', 'spectral' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
