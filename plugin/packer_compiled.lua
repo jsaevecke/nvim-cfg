@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["conform.nvim"] = {
-    config = { "\27LJ\2\2Ø\1\0\0\4\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0005\2\4\0005\3\3\0=\3\5\2=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\ago\1\0\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0" },
+    config = { "\27LJ\2\2¥\2\0\0\4\0\18\0\0216\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\f\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2=\2\r\0015\2\14\0=\2\15\0015\2\16\0=\2\17\1B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0" },
     loaded = true,
     path = "/home/jsa/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
@@ -210,7 +210,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: conform.nvim
 time([[Config for conform.nvim]], true)
-try_loadstring("\27LJ\2\2Ø\1\0\0\4\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0005\2\4\0005\3\3\0=\3\5\2=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\ago\1\0\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0", "config", "conform.nvim")
+try_loadstring("\27LJ\2\2¥\2\0\0\4\0\18\0\0216\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\f\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2=\2\r\0015\2\14\0=\2\15\0015\2\16\0=\2\17\1B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0", "config", "conform.nvim")
 time([[Config for conform.nvim]], false)
 
 _G._packer.inside_compile = false

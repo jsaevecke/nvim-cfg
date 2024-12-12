@@ -40,6 +40,8 @@ return require('packer').startup(function(use)
             require("conform").setup({
                 formatters_by_ft = {
                     go = { "gofmt", "goimports" },
+                    ["graphql"] = { "prettier" },
+                    ["gql"] = { "prettier" },
                 },
                 format_on_save = {
                     -- I recommend these options. See :help conform.format for details.
