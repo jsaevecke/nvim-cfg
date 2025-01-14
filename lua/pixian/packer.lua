@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
                     go = { "gofmt", "goimports" },
                     ["graphql"] = { "prettier" },
                     ["gql"] = { "prettier" },
+                    ["_"] = { "prettier" },
                 },
                 format_on_save = {
                     -- I recommend these options. See :help conform.format for details.
