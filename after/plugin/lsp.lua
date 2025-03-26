@@ -55,7 +55,7 @@ mason_lspconfig.setup({
 lspconfig.gopls.setup {
     settings = {
         gopls = {
-            buildFlags = { "-tags=integration", "-tags=unit", "-tags=integration_vpn" },
+            buildFlags = { "-tags=integration unit integration_vpn" },
         },
     },
 }
