@@ -1,11 +1,17 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require('lsp-zero')               -- lsp-zero is for interaction with the LSP
+local lspconfig = require('lspconfig')             -- lspconfig is for configuring the LSP
+local mason = require('mason')                     -- mason is for managing LSP servers
+local mason_lspconfig = require('mason-lspconfig') -- mason-lspconfig is for configuring LSP servers
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+require('luasnip.loaders.from_vscode').lazy_load()
+require('ufo').setup()
 
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-
-require('ufo').setup()
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -35,22 +41,24 @@ lsp_zero.set_server_config({
     }
 })
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls'},
+mason.setup({})
+mason_lspconfig.setup({
+    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+            lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
         end,
     }
 })
 
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-require('luasnip.loaders.from_vscode').lazy_load()
+lspconfig.gopls.setup {
+    settings = {
+        gopls = {
+            buildFlags = { "-tags=integration", "-tags=unit", "-tags=integration_vpn" },
+        },
+    },
+}
 
 cmp.setup({
     sources = {
