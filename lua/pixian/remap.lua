@@ -29,7 +29,11 @@ vim.keymap.set("n", "<leader>l", function()
 end, { desc = "Lint current file" })
 
 -- VIM-GO
+vim.g.go_test_timeout = '120s'
 vim.keymap.set("n", "<leader>t", ":GoTestFunc<CR>", { desc = "Go Test Function" })
+vim.keymap.set("n", "<leader>T", ":GoTest<CR>", { desc = "Go Test All" })
+vim.keymap.set("n", "<leader>DS", ":GoDebugStart<CR>", { desc = "Go Debug Start" })
+vim.keymap.set("n", "<leader>DOC", ":GoDoc<CR>", { desc = "Go Doc" })
 
 -- TROUBLE
 vim.keymap.set("n", "<leader>xx", function() Trouble.toggle("diagnostics") end)
