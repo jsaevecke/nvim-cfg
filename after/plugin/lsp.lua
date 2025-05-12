@@ -49,16 +49,13 @@ mason_lspconfig.setup({
         lua_ls = function()
             lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
         end,
+        gopls = function()
+            lspconfig.gopls.setup({settings={gopls={buildFlags={"-tags=integration unit integration_vpn"}}}})
+        end,
     }
 })
 
-lspconfig.gopls.setup {
-    settings = {
-        gopls = {
-            buildFlags = { "-tags=integration unit integration_vpn" },
-        },
-    },
-}
+
 
 cmp.setup({
     sources = {
