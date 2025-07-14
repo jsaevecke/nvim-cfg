@@ -90,10 +90,10 @@ _G.packer_plugins = {
     path = "/home/jsa/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
   },
-  ["copilot.vim"] = {
+  ["gemini.nvim"] = {
     loaded = true,
-    path = "/home/jsa/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
+    path = "/home/jsa/.local/share/nvim/site/pack/packer/start/gemini.nvim",
+    url = "https://github.com/kiddos/gemini.nvim"
   },
   harpoon = {
     loaded = true,

@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('theprimeagen/harpoon')
     use('tpope/vim-fugitive')
-    use('github/copilot.vim')
+    use{'kiddos/gemini.nvim',opts = {}}
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
