@@ -1,5 +1,25 @@
 local lsp_zero = require('lsp-zero')               -- lsp-zero is for interaction with the LSP
-local lspconfig = require('lspconfig')             -- lspconfig is for configuring the LSP
+local lspconfig = require('lspconfig').lua_ls.setup {
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
+                        },
+                        diagnostics = {
+                            globals = {
+                                'vim',
+                                'require',
+                            },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true),
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+            }
 local mason = require('mason')                     -- mason is for managing LSP servers
 local mason_lspconfig = require('mason-lspconfig') -- mason-lspconfig is for configuring LSP servers
 local cmp = require('cmp')
@@ -13,7 +33,7 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -46,9 +66,6 @@ mason_lspconfig.setup({
     ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls', 'pylsp' },
     handlers = {
         lsp_zero.default_setup,
-        lua_ls = function()
-            lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
-        end,
         gopls = function()
             lspconfig.gopls.setup({settings={gopls={buildFlags={"-tags=integration unit integration_vpn"}}}})
         end,
