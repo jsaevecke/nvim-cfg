@@ -61,7 +61,9 @@ return require('packer').startup(function(use)
     use('fatih/vim-go')           -- Go support
     use('mfussenegger/nvim-lint') -- Linter
     use {
-        'folke/trouble.nvim',
+        -- 'folke/trouble.nvim', fix for '_on_line' waits for approval using another branch till mantainer approves it
+        'h-michael/trouble.nvim',
+        branch = 'fix/decoration-provider-api',
         requires = 'nvim-tree/nvim-web-devicons',
     }
     use('xiyaowong/transparent.nvim')

@@ -43,7 +43,7 @@ lsp_zero.set_server_config({
 
 mason.setup({})
 mason_lspconfig.setup({
-    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls' },
+    ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls', 'pylsp' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
