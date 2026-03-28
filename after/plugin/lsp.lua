@@ -1,5 +1,14 @@
 local lsp_zero = require('lsp-zero')               -- lsp-zero is for interaction with the LSP
-local lspconfig = require('lspconfig').lua_ls.setup {
+local lspconfig = require('lspconfig')
+local mason = require('mason')                     -- mason is for managing LSP servers
+local mason_lspconfig = require('mason-lspconfig') -- mason-lspconfig is for configuring LSP servers
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+require('luasnip.loaders.from_vscode').lazy_load()
+require('ufo').setup()
+
+lspconfig.lua_ls.setup {
                 settings = {
                     Lua = {
                         runtime = {
@@ -20,13 +29,21 @@ local lspconfig = require('lspconfig').lua_ls.setup {
                     },
                 },
             }
-local mason = require('mason')                     -- mason is for managing LSP servers
-local mason_lspconfig = require('mason-lspconfig') -- mason-lspconfig is for configuring LSP servers
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-require('luasnip.loaders.from_vscode').lazy_load()
-require('ufo').setup()
+lspconfig.yamlls.setup {
+  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
+}
+
+lspconfig.helm_ls.setup {
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
+
 
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
@@ -36,6 +53,11 @@ vim.o.foldenable = true
 lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
+    vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { 
+        desc = "Startet den Language Server neu", 
+        noremap = true, 
+        silent = true 
+    })
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)

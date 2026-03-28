@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/jsa/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?/init.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/jsa/.cache/nvim/packer_hererocks/2.1.1753364724/lib/lua/5.1/?.so"
+local package_path_str = "/home/jsa/.cache/nvim/packer_hererocks/2.1.1772619647/share/lua/5.1/?.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1772619647/share/lua/5.1/?/init.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1772619647/lib/luarocks/rocks-5.1/?.lua;/home/jsa/.cache/nvim/packer_hererocks/2.1.1772619647/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/jsa/.cache/nvim/packer_hererocks/2.1.1772619647/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["conform.nvim"] = {
-    config = { "\27LJ\2\nï\2\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\3=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\3\22format_after_save\0\21formatters_by_ft\0\19format_on_save\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\4\fgraphql\0\bgql\0\ago\0\6_\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0" },
+    config = { "\27LJ\2\nï\2\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\3=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\3\22format_after_save\0\21formatters_by_ft\0\19format_on_save\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\4\6_\0\bgql\0\fgraphql\0\ago\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0" },
     loaded = true,
     path = "/home/jsa/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
@@ -210,7 +210,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: conform.nvim
 time([[Config for conform.nvim]], true)
-try_loadstring("\27LJ\2\nï\2\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\3=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\3\22format_after_save\0\21formatters_by_ft\0\19format_on_save\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\4\fgraphql\0\bgql\0\ago\0\6_\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0", "config", "conform.nvim")
+try_loadstring("\27LJ\2\nï\2\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\3=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\22format_after_save\1\0\1\17lsp_fallback\2\19format_on_save\1\0\2\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\3\22format_after_save\0\21formatters_by_ft\0\19format_on_save\0\6_\1\2\0\0\rprettier\bgql\1\2\0\0\rprettier\fgraphql\1\2\0\0\rprettier\ago\1\0\4\6_\0\bgql\0\fgraphql\0\ago\0\1\3\0\0\ngofmt\14goimports\nsetup\fconform\frequire\0", "config", "conform.nvim")
 time([[Config for conform.nvim]], false)
 
 _G._packer.inside_compile = false
