@@ -1,8 +1,5 @@
 -- Key mappings and autocommands.
-local Trouble = require("trouble")
-
--- Leader key (must match set.lua).
-vim.g.mapleader = " "
+-- Leader is defined in set.lua; no need to re-declare it here.
 
 -- ── General ──────────────────────────────────────────────────────────────────
 
@@ -19,6 +16,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Run linter automatically on enter, write, and leaving insert mode.
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
     callback = function()
         require('lint').try_lint()
     end,
@@ -45,15 +43,6 @@ vim.keymap.set("n", "<leader>t",   ":GoTestFunc<CR>",   { desc = "Go Test Functi
 vim.keymap.set("n", "<leader>T",   ":GoTest<CR>",        { desc = "Go Test All" })
 vim.keymap.set("n", "<leader>DS",  ":GoDebugStart<CR>",  { desc = "Go Debug Start" })
 vim.keymap.set("n", "<leader>DOC", ":GoDoc<CR>",         { desc = "Go Doc" })
-
--- ── Trouble (diagnostics) ─────────────────────────────────────────────────────
-
-vim.keymap.set("n", "<leader>xx", function() Trouble.toggle("diagnostics") end)
-vim.keymap.set("n", "<leader>xw", function() Trouble.toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() Trouble.toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() Trouble.toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() Trouble.toggle("loclist") end)
-vim.keymap.set("n", "gR",         function() Trouble.toggle("lsp_references") end)
 
 -- ── Copilot Chat ──────────────────────────────────────────────────────────────
 

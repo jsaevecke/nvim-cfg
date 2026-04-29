@@ -61,16 +61,18 @@ vim.o.foldenable    = true
 
 -- ── LSP key mappings (applied per-buffer on attach) ──────────────────────────
 
+-- Restart the LSP server for the current buffer (global mapping, registered once).
+vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "Restart LSP server", noremap = true, silent = true })
+
 lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>",                           { desc = "Restart LSP server", noremap = true, silent = true })
     vim.keymap.set("n", "gd",         function() vim.lsp.buf.definition() end,      opts)
     vim.keymap.set("n", "K",          function() vim.lsp.buf.hover() end,           opts)
     vim.keymap.set("n", "<leader>vws",function() vim.lsp.buf.workspace_symbol() end,opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end,   opts)
-    vim.keymap.set("n", "[d",         function() vim.diagnostic.jump({ count =  1, float = true }) end, opts)
-    vim.keymap.set("n", "]d",         function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+    vim.keymap.set("n", "[d",         function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+    vim.keymap.set("n", "]d",         function() vim.diagnostic.jump({ count =  1, float = true }) end, opts)
     vim.keymap.set("n", "<leader>vca",function() vim.lsp.buf.code_action() end,     opts)
     vim.keymap.set("n", "<leader>vrr",function() vim.lsp.buf.references() end,      opts)
     vim.keymap.set("n", "<leader>vrn",function() vim.lsp.buf.rename() end,          opts)

@@ -12,3 +12,14 @@ telescope.setup {
         },
     },
 }
+
+-- ── Trouble key mappings ──────────────────────────────────────────────────────
+
+local Trouble = require("trouble")
+
+vim.keymap.set("n", "<leader>xx", function() Trouble.toggle("diagnostics") end,           { desc = "Trouble: diagnostics" })
+vim.keymap.set("n", "<leader>xw", function() Trouble.toggle("workspace_diagnostics") end, { desc = "Trouble: workspace diagnostics" })
+vim.keymap.set("n", "<leader>xd", function() Trouble.toggle("document_diagnostics") end,  { desc = "Trouble: document diagnostics" })
+vim.keymap.set("n", "<leader>xq", function() Trouble.toggle("quickfix") end,              { desc = "Trouble: quickfix" })
+vim.keymap.set("n", "<leader>xl", function() Trouble.toggle("loclist") end,               { desc = "Trouble: loclist" })
+vim.keymap.set("n", "gR",         function() Trouble.toggle("lsp_references") end,        { desc = "Trouble: LSP references" })

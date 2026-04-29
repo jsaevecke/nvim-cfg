@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
         "CopilotC-Nvim/CopilotChat.nvim",
         branch = "main",
         requires = {
-            { "github/copilot.vim" },
             { "nvim-lua/plenary.nvim" },
         },
         config = function()
@@ -97,14 +96,10 @@ return require('packer').startup(function(use)
                     gql      = { "prettier" },
                     ["_"]    = { "prettier" }, -- fallback for all other filetypes
                 },
-                -- Synchronous format triggered on BufWritePre
+                -- Synchronous format triggered on BufWritePre.
                 format_on_save = {
                     lsp_fallback = true,
                     timeout_ms = 500,
-                },
-                -- Asynchronous format triggered after BufWritePost
-                format_after_save = {
-                    lsp_fallback = true,
                 },
             })
         end
