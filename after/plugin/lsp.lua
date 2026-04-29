@@ -47,6 +47,15 @@ vim.lsp.config('helm_ls', {
 })
 vim.lsp.enable('helm_ls')
 
+vim.lsp.config('gopls', {
+    settings = {
+        gopls = {
+            buildFlags = { "-tags=integration unit integration_vpn" },
+        },
+    },
+})
+vim.lsp.enable('gopls')
+
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
@@ -90,9 +99,6 @@ mason_lspconfig.setup({
     ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls', 'pylsp' },
     handlers = {
         lsp_zero.default_setup,
-        gopls = function()
-            lspconfig.gopls.setup({settings={gopls={buildFlags={"-tags=integration unit integration_vpn"}}}})
-        end,
     }
 })
 
@@ -102,7 +108,6 @@ cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
         { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer',  keyword_length = 3 },
     },
