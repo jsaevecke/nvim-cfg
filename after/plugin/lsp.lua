@@ -99,6 +99,11 @@ mason_lspconfig.setup({
     ensure_installed = { 'lua_ls', 'gopls', 'graphql', 'sqls', 'dockerls', 'rust_analyzer', 'lemminx', 'helm_ls', 'pylsp' },
     handlers = {
         lsp_zero.default_setup,
+        -- These servers are configured via vim.lsp.config/enable; skip lsp_zero setup
+        lua_ls   = function() end,
+        gopls    = function() end,
+        yamlls   = function() end,
+        helm_ls  = function() end,
     }
 })
 

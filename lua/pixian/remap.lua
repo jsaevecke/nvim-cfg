@@ -1,4 +1,4 @@
-Trouble = require("trouble")
+local Trouble = require("trouble")
 
 vim.g.mapleader = " "
 
