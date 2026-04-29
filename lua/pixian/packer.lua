@@ -24,7 +24,8 @@ return require('packer').startup(function(use)
     }
     use('folke/tokyonight.nvim')
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim',
+        branch = 'master',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use({
