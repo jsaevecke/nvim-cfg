@@ -7,6 +7,17 @@ require('nvim-treesitter').install({
     "graphql", "helm", "dockerfile", "proto",
 })
 
+-- Enable treesitter-based syntax highlighting for every buffer.
+-- The nvim-treesitter main branch no longer auto-enables highlighting;
+-- it must be started manually via vim.treesitter.start(). pcall silently
+-- ignores filetypes that have no parser installed.
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("treesitter-highlight", { clear = true }),
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+    end,
+})
+
 -- treesitter-context: sticky header showing the enclosing scope at the top of
 -- the window. max_lines = 0 means "as many lines as needed".
 require('treesitter-context').setup {
