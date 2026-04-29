@@ -42,3 +42,8 @@ vim.keymap.set("n", "<leader>xd", function() Trouble.toggle("document_diagnostic
 vim.keymap.set("n", "<leader>xq", function() Trouble.toggle("quickfix") end)
 vim.keymap.set("n", "<leader>xl", function() Trouble.toggle("loclist") end)
 vim.keymap.set("n", "gR", function() Trouble.toggle("lsp_references") end)
+
+-- Normal mode: Toggle the Copilot Chat window
+vim.keymap.set('n', '<leader>cc', '<cmd>CopilotChatToggle<cr>', { desc = 'Toggle Copilot Chat' })
+-- Visual mode: Open Copilot Chat with the currently highlighted code
+vim.keymap.set('v', '<leader>cc', '<cmd>CopilotChat<cr>', { desc = 'Copilot Chat with selection' })

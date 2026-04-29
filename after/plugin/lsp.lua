@@ -1,5 +1,4 @@
 local lsp_zero = require('lsp-zero')               -- lsp-zero is for interaction with the LSP
-local lspconfig = require('lspconfig')
 local mason = require('mason')                     -- mason is for managing LSP servers
 local mason_lspconfig = require('mason-lspconfig') -- mason-lspconfig is for configuring LSP servers
 local cmp = require('cmp')
@@ -8,42 +7,45 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 require('luasnip.loaders.from_vscode').lazy_load()
 require('ufo').setup()
 
-lspconfig.lua_ls.setup {
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT',
-                        },
-                        diagnostics = {
-                            globals = {
-                                'vim',
-                                'require',
-                            },
-                        },
-                        workspace = {
-                            library = vim.api.nvim_get_runtime_file("", true),
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
+-- Modern Neovim 0.11+ configuration (Replaces lspconfig)
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = {
+                    'vim',
+                    'require',
                 },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config('yamlls', {
+    filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
+})
+vim.lsp.enable('yamlls')
+
+vim.lsp.config('helm_ls', {
+    settings = {
+        ['helm-ls'] = {
+            yamlls = {
+                path = "yaml-language-server",
             }
-
-lspconfig.yamlls.setup {
-  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
-}
-
-lspconfig.helm_ls.setup {
-  settings = {
-    ['helm-ls'] = {
-      yamlls = {
-        path = "yaml-language-server",
-      }
+        }
     }
-  }
-}
-
+})
+vim.lsp.enable('helm_ls')
 
 vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99

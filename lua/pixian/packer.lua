@@ -6,6 +6,22 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    -- The core Copilot plugin (if you haven't added it yet)
+    use('github/copilot.vim')
+    -- The Chat extension for tasks and models
+    use {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "main",
+        requires = {
+            { "github/copilot.vim" },
+            { "nvim-lua/plenary.nvim" }, -- You already have this via Telescope!
+        },
+        config = function()
+            require("CopilotChat").setup({
+                -- You can customize window size, prompts, and behaviors here later!
+            })
+        end,
+    }
     use('folke/tokyonight.nvim')
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -17,7 +33,6 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('theprimeagen/harpoon')
     use('tpope/vim-fugitive')
-    use{'kiddos/gemini.nvim',opts = {}}
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
