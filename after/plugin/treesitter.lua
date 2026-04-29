@@ -1,10 +1,8 @@
--- nvim-treesitter main branch (Neovim 0.12+): no configs module.
--- Highlighting is handled natively by Neovim; this call ensures parsers are
--- installed on startup (async, no-op for already-installed parsers).
-require('nvim-treesitter').install({
-    "bash", "rust", "gitignore", "go", "gomod", "gosum", "gotmpl",
-    "lua", "vim", "vimdoc", "query", "graphql", "helm", "dockerfile", "proto",
-})
+-- nvim-treesitter main branch (Neovim 0.12+).
+-- Highlighting is handled natively by Neovim via built-in treesitter support.
+-- Pre-compiled parsers in nvim-treesitter/parser/ are loaded automatically.
+-- To install/update parsers: install tree-sitter-cli (cargo install tree-sitter-cli)
+-- then run :TSInstall <lang> or :TSUpdate.
 
 require('treesitter-context').setup {
     enable = true,
