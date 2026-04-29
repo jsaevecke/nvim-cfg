@@ -1,6 +1,7 @@
 -- Entry point for the pixian module.
 -- Loaded by init.lua via `require("pixian")`.
--- Order matters: remaps first (leader must be set), then options, then theme.
+-- Order matters: leader is set in init.lua before this file runs,
+-- so remap.lua can safely use <leader> bindings.
 require("pixian.remap")
 require("pixian.set")
 require("pixian.color")

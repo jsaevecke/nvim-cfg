@@ -43,5 +43,4 @@ vim.opt.updatetime = 50
 -- Visual ruler at 160 characters.
 vim.opt.colorcolumn = "160"
 
--- <Space> as leader key.
-vim.g.mapleader = " "
+-- <Space> as leader key is set in init.lua before any module is loaded.
